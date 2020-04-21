@@ -14,6 +14,18 @@ const io = socketio(server);
 io.on('connection', (socket) => {
     console.log("We have a new connection!!!");
 
+    //Allows us access to name and room on the backend
+    socket.on('join', ({name, room}, callback) => {
+        console.log(name);
+        console.log(room);
+
+        //Error handling
+        let error = true;
+        if (error) {
+            callback({ error: 'Somthin aint raght'});
+        }
+    })
+
     socket.on('disconnect', () => {
         console.log("User left!!!");
     })
