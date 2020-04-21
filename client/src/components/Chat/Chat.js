@@ -8,6 +8,8 @@ let socket;
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
     const ENDPOINT = 'localhost:5000';
 
     useEffect(() => {
@@ -18,7 +20,8 @@ const Chat = ({ location }) => {
         setName(name);
         setRoom(room);
 
-        socket.emit('join', { name, room }, ({error}) => {
+        socket.emit('join', { name, room }, ({ error }) => {
+            console.log("in Join");
             alert(error);
         });
 
@@ -32,8 +35,34 @@ const Chat = ({ location }) => {
 
     }, [ENDPOINT, location.search]);
 
+    useEffect(() => {
+        socket.on('message', (message) => {
+            setMessages([...messages, message])
+        })
+    }, [messages]);
+
+    const sendMessage = (event) => {
+        //When you key press or button click an entire page refresh happens
+        //event.preventDefault keeps this full page refresh from happening
+        event.preventDefault();
+
+        if (message) {
+            socket.emit('sendMessage', message, () => setMessage(''))
+        }
+    }
+
+    console.log(message, messages);
+
     return (
-        <h1>Chat</h1>
+        <div className="outerContainer">
+            <div className="container">
+                <input 
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    onKeyPress={(event) => event.key === 'Enter' ? sendMessage(event) : null}
+                />
+            </div>
+        </div>
     )
 }
 
