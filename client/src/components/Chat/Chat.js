@@ -6,6 +6,7 @@ import './Chat.css';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
+import ActiveUsers from '../ActiveUsers/ActiveUsers';
 
 let socket;
 
@@ -15,6 +16,7 @@ const Chat = ({ location }) => {
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const [users, setUsers] = useState([]);
     const ENDPOINT = 'localhost:5000';
 
     useEffect(() => {
@@ -46,6 +48,15 @@ const Chat = ({ location }) => {
         })
     }, [messages]);
 
+    useEffect(() => {
+        socket.on('roomData', (roomData) => {
+            let users = roomData.users.map((user) => user.name);
+            setUsers(users);
+            console.log("herllo")
+            // console.log("Here's the data => ", roomData.users);
+        })
+    }, [users]);
+
     const sendMessage = (event) => {
         //When you key press or button click an entire page refresh happens
         //event.preventDefault keeps this full page refresh from happening
@@ -65,6 +76,7 @@ const Chat = ({ location }) => {
                 <Messages messages={messages} name={name}/>
                 <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </div>
+            <ActiveUsers users={users}/>
         </div>
     )
 }

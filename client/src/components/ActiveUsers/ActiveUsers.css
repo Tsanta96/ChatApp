@@ -1,0 +1,21 @@
+.usersContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 60%;
+    width: 10%;
+    margin-left: 20px;
+}
+
+.activeUsersHeader {
+    background: rgb(91, 0, 119);
+    color: white;
+    margin-top: 0;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+.names {
+    margin-left: 5px;
+}
