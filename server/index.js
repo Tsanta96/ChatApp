@@ -1,6 +1,7 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
+const cors = require('cors');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
 
@@ -12,6 +13,10 @@ const app = express();
 const server = http.createServer(app);
 //instance of socket.io
 const io = socketio(server);
+
+//calling as middleware
+app.use(router);
+app.use(cors());
 
 io.on('connection', (socket) => {
     //Allows us access to name and room on the backend
@@ -52,7 +57,5 @@ io.on('connection', (socket) => {
     })
 })
 
-//calling as middleware
-app.use(router);
 
 server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
