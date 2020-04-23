@@ -14,6 +14,8 @@ const server = http.createServer(app);
 //instance of socket.io
 const io = socketio(server);
 
+server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
 //calling as middleware
 app.use(router);
 app.use(cors());
@@ -56,6 +58,3 @@ io.on('connection', (socket) => {
         console.log("User left!!!");
     })
 })
-
-
-server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

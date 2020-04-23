@@ -17,9 +17,15 @@
     width: 35%;
 }
 
+.downArrowIcon {
+    width: 2rem;
+    height: 2rem;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
     .outerContainer {
         height: 100%;
+        flex-direction: column-reverse;
     }
 
     .container {
