@@ -8,7 +8,7 @@
 }
 
 .activeUsersHeader {
-    background: rgb(91, 0, 119);
+    background: #A71930;
     color: white;
     margin-top: 0;
     text-align: center;
@@ -72,7 +72,7 @@
         height: 100%;
         animation-name: dropdown;
         animation-duration: 1s;
-        background-color: purple;
+        background-color: #A71930;
         color: white;
         font-size: 23px;
         font-family: 'Lobster', cursive;

@@ -16,11 +16,16 @@ body {
 .joinOuterContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
     height: 100vh;
     align-items: center;
     background-color: #1A1A1D;
+}
+
+.peachImage {
+    margin-top: 5%;
+    height: 20%;
 }
 
 .chatHeader {
@@ -28,13 +33,14 @@ body {
     font-family: 'Lobster', cursive;
     font-size: 3.0rem;
     margin-bottom: 0;
+    margin-top: 30px;
 }
 
 .chatHeaderUnderline {
-    background-color: red;
-    width:70%;
+    background-color: #A71930;
+    width:50%;
     height: 2px;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
 }
 
 .joinInnerContainer {
@@ -58,7 +64,7 @@ body {
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #2979FF;
+    background: #A71930;
     padding: 20px;
     border-radius: 5px;
     display: inline-block;

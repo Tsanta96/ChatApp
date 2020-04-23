@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import peachIcon from '../../icons/PeachFalcRed.png';
+
 //Refactor styles using Grid and SCSS
 import './Join.css';
 
@@ -13,6 +15,10 @@ const Join = () => {
 
     return (
        <div className="joinOuterContainer"> 
+       <img 
+            src={peachIcon}
+            className="peachImage"
+        />
         <p className="chatHeader">Peachtree Chats</p>
         <div className="chatHeaderUnderline"></div>
         <div className="joinInnerContainer">
