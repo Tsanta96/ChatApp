@@ -16,7 +16,6 @@ body {
 .joinOuterContainer {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     text-align: center;
     height: 100vh;
     align-items: center;
@@ -24,7 +23,7 @@ body {
 }
 
 .peachImage {
-    margin-top: 5%;
+    margin-top: 8%;
     height: 20%;
 }
 
@@ -33,7 +32,7 @@ body {
     font-family: 'Lobster', cursive;
     font-size: 3.0rem;
     margin-bottom: 0;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .chatHeaderUnderline {
@@ -82,7 +81,7 @@ body {
     }
 
     .joinInnerContainer {
-        width: 80%;
+        width: 70%;
     }
     .chatHeader {
         width: 90%
