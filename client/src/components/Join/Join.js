@@ -13,7 +13,8 @@ const Join = () => {
 
     return (
        <div className="joinOuterContainer"> 
-        <h1 className="chatHeader">PeachTree Chats</h1>
+        <p className="chatHeader">Peachtree Chats</p>
+        <div className="chatHeaderUnderline"></div>
         <div className="joinInnerContainer">
             <h1 className="heading">Join</h1>
             <div>

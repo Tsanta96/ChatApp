@@ -27,6 +27,14 @@ body {
     color: white;
     font-family: 'Lobster', cursive;
     font-size: 3.0rem;
+    margin-bottom: 0;
+}
+
+.chatHeaderUnderline {
+    background-color: red;
+    width:70%;
+    height: 2px;
+    margin-bottom: 5%;
 }
 
 .joinInnerContainer {
