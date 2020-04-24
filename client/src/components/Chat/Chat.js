@@ -28,7 +28,6 @@ const Chat = ({ location }) => {
         setRoom(room);
 
         socket.emit('join', { name, room }, ({ error }) => {
-            console.log("in Join");
             alert(error);
         });
 
@@ -52,8 +51,6 @@ const Chat = ({ location }) => {
         socket.on('roomData', (roomData) => {
             let users = roomData.users.map((user) => user.name);
             setUsers(users);
-            console.log("herllo")
-            // console.log("Here's the data => ", roomData.users);
         })
     }, [users]);
 
