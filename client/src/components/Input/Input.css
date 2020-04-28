@@ -9,6 +9,9 @@
     padding: 5%;
     width: 80%;
     font-size: 1.2em;
+    /* background-color: #A71930; */
+    background-color: black;
+    color: white;
 }
 
 input:focus,
@@ -26,4 +29,5 @@ select:focus {
     display: inline-block;
     border: none;
     width: 20%;
+    border-left: 1px solid darkgray;
 }

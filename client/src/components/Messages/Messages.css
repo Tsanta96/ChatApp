@@ -2,4 +2,6 @@
     padding: 5% 0;
     overflow: auto;
     flex: auto;
+    background-color: black;
+    border-top: 1px solid darkgray;
 }
