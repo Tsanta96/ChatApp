@@ -1,6 +1,6 @@
 # PeachTree Chats
 
-[Live Demo](https://happy-ramanujan-aca9c0.netlify.app/ "Live Demo")
+[Live Demo](https://peachtree.netlify.app/ "Live Demo")
 
 PeachTree Chats is a Chat Application optimized for both mobile and desktop that allows users to create a temporary username
 and join chat rooms where they can message in real time with one another. This was
