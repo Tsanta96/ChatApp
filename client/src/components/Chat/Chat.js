@@ -12,70 +12,63 @@ let socket;
 
 //location comes from 'router'
 const Chat = ({ location }) => {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
-    const [users, setUsers] = useState([]);
-    const ENDPOINT = 'https://react-mychatapp.herokuapp.com/';
+	const [name, setName] = useState('');
+	const [room, setRoom] = useState('');
+	const [message, setMessage] = useState('');
+	const [messages, setMessages] = useState([]);
+	const [users, setUsers] = useState([]);
+	const ENDPOINT = 'https://react-mychatapp.herokuapp.com/';
 
-    useEffect(() => {
-        const { name, room } = queryString.parse(location.search)
+	useEffect(() => {
+		const { name, room } = queryString.parse(location.search)
+		socket = io(ENDPOINT);
 
-        socket = io(ENDPOINT);
+		setName(name);
+		setRoom(room);
 
-        setName(name);
-        setRoom(room);
+		socket.emit('join', { name, room }, ({ error }) => { alert(error) });
 
-        socket.emit('join', { name, room }, ({ error }) => {
-            alert(error);
-        });
+		//Used for unmounting
+		return () => {
+			socket.emit('disconnect');
+			//turns off socket instance
+			socket.off();
+		};
+	}, [ENDPOINT, location.search]);
 
-        //Used for unmounting
-        return () => {
-            socket.emit('disconnect');
+	useEffect(() => {
+		socket.on('message', (message) => {
+			setMessages([...messages, message])
+		})
+	}, [messages]);
 
-            //turns off socket instance
-            socket.off();
-        };
+	useEffect(() => {
+		socket.on('roomData', (roomData) => {
+			let users = roomData.users.map((user) => user.name);
+			setUsers(users);
+		})
+	}, [users]);
 
-    }, [ENDPOINT, location.search]);
+	const sendMessage = (event) => {
+		//When you key press or button click an entire page refresh happens
+		//event.preventDefault keeps this full page refresh from happening
+		event.preventDefault();
 
-    useEffect(() => {
-        socket.on('message', (message) => {
-            setMessages([...messages, message])
-        })
-    }, [messages]);
+		if (message) socket.emit('sendMessage', message, () => setMessage(''))
+	}
 
-    useEffect(() => {
-        socket.on('roomData', (roomData) => {
-            let users = roomData.users.map((user) => user.name);
-            setUsers(users);
-        })
-    }, [users]);
+	console.log(message, messages);
 
-    const sendMessage = (event) => {
-        //When you key press or button click an entire page refresh happens
-        //event.preventDefault keeps this full page refresh from happening
-        event.preventDefault();
-
-        if (message) {
-            socket.emit('sendMessage', message, () => setMessage(''))
-        }
-    }
-
-    console.log(message, messages);
-
-    return (
-        <div className="outerContainer">
-            <div className="container">
-                <InfoBar room={room}/>
-                <Messages messages={messages} name={name}/>
-                <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
-            </div>
-            <ActiveUsers users={users}/>
-        </div>
-    )
+	return (
+		<div className="outerContainer">
+			<div className="container">
+				<InfoBar room={room}/>
+				<Messages messages={messages} name={name}/>
+				<Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+			</div>
+			<ActiveUsers users={users}/>
+		</div>
+	)
 }
 
 export default Chat;

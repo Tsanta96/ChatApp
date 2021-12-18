@@ -1,94 +1,92 @@
 html,
 body {
-    font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
 #root {
-    height: 100vh;
+	height: 100vh;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .joinOuterContainer {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 100vh;
-    align-items: center;
-    background-color: #1A1A1D;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 100vh;
+	align-items: center;
+	background-color: #1A1A1D;
 }
 
 .peachImage {
-    margin-top: 8%;
-    height: 20%;
+	margin-top: 7%;
+	height: 20%;
 }
 
 .chatHeader {
-    color: white;
-    font-family: 'Lobster', cursive;
-    font-size: 3.0rem;
-    margin-bottom: 0;
-    margin-top: 20px;
+	color: white;
+	font-family: 'Lobster', cursive;
+	font-size: 3.0rem;
+	margin-bottom: 0;
+	margin-top: 20px;
 }
 
 .chatHeaderUnderline {
-    background-color: #A71930;
-    width:50%;
-    height: 2px;
-    margin-bottom: 1%;
+	background-color: #A71930;
+	width: 50%;
+	height: 2px;
+	margin-bottom: 1%;
 }
 
 .joinInnerContainer {
-    width: 25%;
+	width: 25%;
 }
 
 .joinInput {
-    border-radius: 8px;
-    padding: 15px 20px;
-    width: 100%;
+	border-radius: 8px;
+	padding: 15px 20px;
+	width: 100%;
 }
 
 .heading {
-    color: white;
-    font-size: 2.5em;
-    padding-bottom: 10px;
-    border-bottom: 2px solid white;
+	color: white;
+	font-size: 2.5em;
+	padding-bottom: 10px;
+	border-bottom: 2px solid white;
 }
 
 .button {
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #A71930;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    width: 100%;
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #A71930;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	width: 100%;
 }
 
 .mt-20 {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-    .joinOuterContainer {
-        height: 100%;
-    }
-
-    .joinInnerContainer {
-        width: 70%;
-    }
-    .chatHeader {
-        width: 90%
-    }
-
+	.joinOuterContainer {
+		height: 100%;
+	}
+	.joinInnerContainer {
+		width: 70%;
+	}
+	.chatHeader {
+		width: 90%
+	}
 }
 
 button:focus {
-    outline: 0;
+	outline: 0;
 }
