@@ -14,7 +14,7 @@ const server = http.createServer(app);
 //instance of socket.io
 const io = socketio(server, {
   cors: {
-    origin: "https://react-mychatapp.herokuapp.com",
+    origin: "https://peachtree-chats.herokuapp.com",
     methods: ["GET", "POST"],
   },
 });
