@@ -30,7 +30,7 @@ const Chat = ({ location }) => {
     setRoom(room);
 
     socket.emit("join", { name, room }, ({ error }) => {
-      alert(error);
+      alert("Ran into an issue. Try to refresh");
     });
 
     //Used for unmounting
